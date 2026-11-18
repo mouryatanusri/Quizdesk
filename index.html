@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Turn a PDF question sheet into a practice quiz and review your results.">
+<title>Quizdesk — PDF practice quizzes</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header><div class="bar"><button class="brand" id="home"><span class="logo" aria-hidden="true">✓</span> Quizdesk</button><span class="header-label">Your quiz workspace!</span></div></header>
+<main>
+<section id="landing" aria-labelledby="title">
+<div class="intro"><h1 id="title">Your next<br><em>practice quiz.</em></h1><p>Turn a PDF question bank into a quiz. Practice with instant feedback or take a test and review your score.</p></div>
+<div class="card upload-card">
+<div id="drop" class="drop"><div class="file-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l4 4v14H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v5h4m-6 10v-7m-3 3 3-3 3 3"/></svg></div><h2>Drop your PDF here</h2><p>Use a text-based PDF with four options per question.</p><input id="file" type="file" accept=".pdf,application/pdf" hidden><button class="primary" id="choose">Choose PDF <span aria-hidden="true">↑</span></button></div>
+<p id="status" class="status" role="status" hidden></p>
+<div class="sample">Just looking around? <button class="link" id="sample">Try a sample quiz <span aria-hidden="true"></span></button></div>
+</div>
+<div class="flow">
+<div><strong>Practice</strong><small>Get feedback after each answer</small></div>
+<div><strong>Test</strong><small>See your marks when you finish</small></div>
+</div>
+</section>
+<section id="setup" class="work card" hidden></section>
+<section id="quiz" class="work card" hidden></section>
+<section id="results" class="work" hidden></section>
+<dialog id="end-dialog" aria-labelledby="end-title" aria-describedby="end-message">
+<form method="dialog">
+<h2 id="end-title">End the test?</h2>
+<p id="end-message"></p>
+<div class="row dialog-actions">
+<button class="secondary" value="cancel" autofocus>Cancel</button>
+<button class="danger" value="end">Yes, end the test</button>
+</div>
+</form>
+</dialog>
+</main>
+<script defer src="./vendor/pdf.worker.js"></script>
+<script defer src="./vendor/pdf.js"></script>
+<script defer src="./parser.js"></script>
+<script defer src="./quiz-data.js"></script>
+<script defer src="./pdf-text.js"></script>
+<script defer src="./app.js"></script>
+</body></html>
